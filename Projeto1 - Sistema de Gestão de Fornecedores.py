@@ -26,8 +26,13 @@ def adicionar_fornecedor(fornecedores):
 
 
     #Exibir o dicionário com os fornecedores atualizado
-    for fornecedor, informacao in fornecedores.items():
-        print(f"\n{fornecedor}: {informacao}")
+    #Para isso, adicionar cada nome de empresa a uma variável
+    empresa = fornecedores[nome_empresa]
+    
+    #Criar um loop que irá iterar sobre cada uma das informações
+    for chave, valor in empresa.items(): #Neste caso, empresa já é a chave primária. .items() permite acessar os itens para essa chave
+        print(f"{chave}: {valor}")
+
     print("\n Obrigado!")
 
 
