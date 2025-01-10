@@ -5,36 +5,39 @@
 #Podemos iniciar criando um dicionário contendo os nomes dos fornecedores
 
 fornecedores = {
-    "FerramentesGerais": {
+    "Fornecedor1": {
+        "Nome": "Ferramentas Gerais",
         "Categoria": "Ferramentas", 
         "Porte": "Grande"
         },
-    "Serviços Brasil":{
+    "Fornecedor2":{
+        "Nome": "Serviços Brasil",
         "Categoria":"Manuteção",
         "Porte": "Médio"}
 }
 
 #Definir uma função que irá permitir que o usuário adicione novos fornecedores à essa lista
 def adicionar_fornecedor(fornecedores):
-    nome_empresa = input("\n Escreva o nome da nova empresa: ")
-    categoria = input("Digite a categoria que essa empresa se enquadra: ")
-    porte = input("Digite o porte dessa empresa: ")
+    id_fornecedor = input("\n Escreva o id da nova empresa: ")
 
-    #Adicionar as informações ao dicionário já existente
-    fornecedores[nome_empresa] = {"Categoria": categoria, "Porte": porte}
-    print("\n Fornecedor adicionado com sucesso da base de dados!")
-
-
-    #Exibir o dicionário com os fornecedores atualizado
-    #Para isso, adicionar cada nome de empresa a uma variável
-    empresa = fornecedores[nome_empresa]
+    #Checar se o fornecedor já está na base
+    if id_fornecedor in fornecedores:
+        print("\n Ops, esta empresa já está cadastrada! ")
     
-    #Criar um loop que irá iterar sobre cada uma das informações
-    for chave, valor in empresa.items(): #Neste caso, empresa já é a chave primária. .items() permite acessar os itens para essa chave
-        print(f"{chave}: {valor}")
+    #Caso não esteja cadastrada, aí sim o usuário irá digitar os dados da empresa:
+    else:
+        nome = input("Digite o nome da empresa: ")
+        categoria = input("Digite a categoria da empresa: ")
+        porte = input("Digite o porte da empresa: ")
 
-    print("\n Obrigado!")
+        #Agora que o usuário já digitou os nomes, adicionar as informações no dicionário usando como base a chave primária
+        fornecedores[id_fornecedor] = {"Nome": nome, "Categoria": categoria, "Porte": porte}
+        print(f"\nFornecedor {nome} de categoria {categoria} e porte {porte} adicionado na base!")
 
+        #Imprimir a lista atual de fornecedores
+        fornecedor = fornecedores[id_fornecedor]
+        for chave, valor in fornecedor.items():
+            print(f"{chave}: {valor}")
 
 print("######################### Seja Bem Vindo ao mini sistema de gestão de Fornecedores ##################################")
 print("\n A lista de atual de fornecedores é a seguinte: ", fornecedores)
