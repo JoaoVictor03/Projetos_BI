@@ -47,7 +47,6 @@ def adicionar_fornecedor(fornecedores):
                 #imprimir cada uma das chaves e o valor
                 print(f"{chave}: {valor}")
             
-        
 
 print("######################### Seja Bem Vindo ao mini sistema de gestão de Fornecedores ##################################")
 print("\n A lista de atual de fornecedores é a seguinte: ", fornecedores)
